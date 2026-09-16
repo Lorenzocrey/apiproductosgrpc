@@ -1,0 +1,69 @@
+syntax = "proto3";
+
+package producto;
+
+// Servicio de productos con las mismas operaciones CRUD del API REST/GraphQL
+service ProductoService {
+    rpc CrearProducto (ProductoInput) returns (RespuestaProducto);
+    rpc CrearProductos (ProductoInputList) returns (RespuestaProductosCreados);
+    rpc ObtenerProductos (Vacio) returns (RespuestaProductos);
+    rpc ObtenerProductoPorId (ProductoIdRequest) returns (RespuestaProducto);
+    rpc ActualizarProducto (ProductoUpdateRequest) returns (RespuestaProducto);
+    rpc EliminarProducto (ProductoIdRequest) returns (RespuestaEliminacion);
+}
+
+message Producto {
+    string id = 1;
+    string nombre = 2;
+    string descripcion = 3;
+    double precio = 4;
+    string createdAt = 5;
+    string updatedAt = 6;
+}
+
+message ProductoInput {
+    string id = 1;
+    string nombre = 2;
+    string descripcion = 3;
+    double precio = 4;
+}
+
+message ProductoInputList {
+    repeated ProductoInput productos = 1;
+}
+
+message ProductoUpdateRequest {
+    string id = 1;
+    optional string nombre = 2;
+    optional string descripcion = 3;
+    optional double precio = 4;
+}
+
+message ProductoIdRequest {
+    string id = 1;
+}
+
+message Vacio {}
+
+message RespuestaProducto {
+    bool success = 1;
+    string message = 2;
+    Producto data = 3;
+}
+
+message RespuestaProductos {
+    bool success = 1;
+    int32 count = 2;
+    repeated Producto data = 3;
+}
+
+message RespuestaProductosCreados {
+    bool success = 1;
+    string message = 2;
+    repeated Producto data = 3;
+}
+
+message RespuestaEliminacion {
+    bool success = 1;
+    string message = 2;
+}

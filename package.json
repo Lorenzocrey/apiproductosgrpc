@@ -1,0 +1,28 @@
+{
+  "name": "unidad-tres-api-grpc",
+  "version": "1.0.0",
+  "description": "Aplicación que implementa un servicio gRPC con el fin de realizar operaciones CRUD sobre productos, entregable Unidad 3 Arquitectura de Aplicaciones Web Poli.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js",
+    "client": "node cliente.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Lorenzocrey"
+  },
+  "keywords": [
+    "API",
+    "gRPC"
+  ],
+  "author": "Lorenzo Castañeda Rey",
+  "license": "ISC",
+  "dependencies": {
+    "@grpc/grpc-js": "^1.11.1",
+    "@grpc/proto-loader": "^0.7.13",
+    "dotenv": "^17.4.2",
+    "mongodb": "^7.6.0",
+    "mongoose": "^9.9.3"
+  }
+}
